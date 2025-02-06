@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Metrics Graphs</title>
+    <style>
+        .graph-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .graph-container > div {
+            flex: 0 0 45%; /* Adjust the width as needed */
+            margin: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Metrics Graphs</h1>
+    <div class="graph-container">
+        {% for metric, plot_url in plots.items() %}
+        <div>
+            <h2>{{ metric }}</h2>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="{{ metric }} Graph">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
